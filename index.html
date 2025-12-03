@@ -25,18 +25,35 @@
             text-decoration: none;
             margin-left: 20px;
             font-weight: bold;
-        }
 
         .hero {
-            background: url('https://images.unsplash.com/photo-1581091059449-52466d04898a') center/cover;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-shadow: 0 0 10px rgba(0,0,0,0.7);
-            text-align: center;
-        }
+    height: 90vh;
+    background: url('Badsanierungbild.hero.png') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* Dunkler Overlay für bessere Lesbarkeit */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+}
+
+.hero * {
+    position: relative;
+    z-index: 2;
+
         .hero h2 {
             font-size: 48px;
             margin: 0;
@@ -133,3 +150,46 @@
 
 </body>
 </html>
+
+<head>
+<style>
+
+/* dein ganzes CSS hier oben */
+/* … */
+
+/* ============================= */
+/* 📱 Mobile Optimierung */
+/* ============================= */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+    }
+    header img {
+        height: 60px;
+        margin: 0 auto 10px;
+    }
+    nav a {
+        margin-left: 10px;
+        font-size: 16px;
+    }
+    .hero {
+        height: 60vh;
+        padding: 10px;
+        text-align: center;
+        background-position: center;
+    }
+    .hero h2 {
+        font-size: 28px;
+    }
+    .btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+</style>
+</head>
+<body>
