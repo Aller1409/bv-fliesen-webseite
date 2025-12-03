@@ -3,408 +3,941 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BV Fliesen – Professionelle Fliesenarbeiten</title>
+
+    <title>BV Fliesen – Professionelle Fliesenarbeiten in Albstadt</title>
+
+    <!-- SEO BASIS -->
+    <meta name="description" content="BV Fliesen in Albstadt – Professionelle Fliesenarbeiten für Bad, Boden, Mosaik & Reparaturen. Moderne Badsanierungen, hochwertige Verlegung und zuverlässiger Service.">
+    <meta name="keywords" content="Fliesenleger Albstadt, Badsanierung, Fliesen, Mosaik, Bodenfliesen, Reparaturen, BV Fliesen">
+    <meta name="robots" content="index,follow">
+
+    <!-- Open Graph für Social Media -->
+    <meta property="og:title" content="BV Fliesen – Professionelle Fliesenarbeiten in Albstadt">
+    <meta property="og:description" content="Moderne Fliesenarbeiten für Bad, Boden und Mosaik. Jetzt kostenloses Angebot anfragen.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bv-fliesen.de/">
+    <meta property="og:image" content="https://bv-fliesen.de/bvfliesen_logo.png">
+
+    <!-- LocalBusiness JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "BV Fliesen",
+      "image": "https://bv-fliesen.de/bvfliesen_logo.png",
+      "url": "https://bv-fliesen.de/",
+      "telephone": "+49-152-08392863",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Eyachstraße 21",
+        "postalCode": "72459",
+        "addressLocality": "Albstadt",
+        "addressCountry": "DE"
+      },
+      "priceRange": "€€",
+      "areaServed": "Albstadt und Umgebung",
+      "description": "Professionelle Fliesenarbeiten, Badsanierung, Bodenfliesen, Mosaikarbeiten und Reparaturen."
+    }
+    </script>
 
     <style>
-        /* -----------------------------------
-           GLOBAL STYLES
-        ----------------------------------- */
+        /* ------------------------------
+           DESIGN-VARIABLEN
+        ------------------------------ */
+        :root {
+            --bg-body: #050509;
+            --bg-card: #0E1017;
+            --bg-elevated: #111827;
+            --accent: #00C2C2;
+            --accent-soft: #009E9E;
+            --text-main: #F9FAFB;
+            --text-muted: #9CA3AF;
+            --border-subtle: #1F2933;
+            --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --transition-fast: 0.2s ease;
+            --transition-med: 0.3s ease;
+        }
+
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
+        /* ------------------------------
+           GLOBAL
+        ------------------------------ */
         body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: #f3f5f7;
-            color: #1A2A3A;
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            background: radial-gradient(circle at top, #111827 0, #050509 55%);
+            color: var(--text-main);
             line-height: 1.6;
-            scroll-behavior: smooth;
         }
 
         h1, h2, h3 {
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-weight: 600;
+            margin: 0;
         }
 
         a {
             text-decoration: none;
+            color: inherit;
         }
 
-        /* Smooth fade animation */
-        .fade-in {
-            animation: fadeIn 1s ease forwards;
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 70px;
+        }
+
+        /* ------------------------------
+           HEADER + MEGA-MENÜ
+        ------------------------------ */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 5, 9, 0.92);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-wrap img {
+            height: 60px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            letter-spacing: 0.15em;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links > li > a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-muted);
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: color var(--transition-fast), border-color var(--transition-fast);
+        }
+
+        .nav-links > li > a:hover,
+        .nav-links > li > a:focus {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Mega-Menü */
+        .nav-item-mega {
+            position: relative;
+        }
+
+        .mega-panel {
+            position: absolute;
+            top: 150%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--bg-elevated);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            padding: 18px 22px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(140px, 1fr));
+            gap: 12px 26px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-med), transform var(--transition-med);
+            min-width: 420px;
+        }
+
+        .nav-item-mega:hover .mega-panel {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .mega-panel h4 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .mega-link {
+            display: block;
+            font-size: 14px;
+            padding: 6px 0;
+            color: var(--text-main);
+            border-radius: 6px;
+            transition: background var(--transition-fast), padding-left var(--transition-fast), color var(--transition-fast);
+        }
+
+        .mega-link span {
+            display: block;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .mega-link:hover {
+            background: rgba(0, 194, 194, 0.08);
+            padding-left: 4px;
+            color: var(--accent);
+        }
+
+        /* CTA im Header */
+        .nav-cta {
+            background: var(--accent);
+            color: #000;
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0, 194, 194, 0.45);
+            transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-soft);
+            transform: translateY(-1px);
+            box-shadow: 0 16px 40px rgba(0, 194, 194, 0.5);
+        }
+
+        /* Burger für Mobile */
+        .nav-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            border: 1px solid var(--border-subtle);
+            background: transparent;
+            color: var(--text-main);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .nav-toggle span,
+        .nav-toggle span::before,
+        .nav-toggle span::after {
+            content: "";
+            display: block;
+            width: 18px;
+            height: 2px;
+            border-radius: 999px;
+            background: var(--text-main);
+            transition: transform var(--transition-fast), opacity var(--transition-fast);
+        }
+
+        .nav-toggle span::before {
+            transform: translateY(-6px);
+        }
+
+        .nav-toggle span::after {
+            transform: translateY(6px);
+        }
+
+        .nav-open .nav-toggle span {
+            transform: rotate(45deg);
+        }
+
+        .nav-open .nav-toggle span::before {
+            transform: rotate(-90deg);
+        }
+
+        .nav-open .nav-toggle span::after {
             opacity: 0;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* -----------------------------------
-           HEADER
-        ----------------------------------- */
-        header {
-            background: #0F1C2E;
-            color: white;
-            padding: 18px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        header img {
-            height: 70px;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
-
-        header img:hover {
-            transform: scale(1.03);
-        }
-
-        nav a {
-            color: white;
-            margin-left: 25px;
-            font-size: 17px;
-            font-weight: 500;
-            padding-bottom: 4px;
-            transition: 0.25s;
-        }
-
-        nav a:hover {
-            border-bottom: 2px solid #00C2C2;
-            color: #00C2C2;
-        }
-
-        /* -----------------------------------
-           HERO SECTION
-        ----------------------------------- */
+        /* ------------------------------
+           HERO
+        ------------------------------ */
         .hero {
-            height: 90vh;
-            background: url('Badsanierungbild.hero.png') center center/cover no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
+            max-width: 1200px;
+            margin: 24px auto 40px;
+            border-radius: 28px;
+            overflow: hidden;
             position: relative;
+            background: url('Badsanierungbild.hero.png') center center/cover no-repeat;
+            min-height: 72vh;
+            display: flex;
+            align-items: stretch;
+            box-shadow: var(--shadow-soft);
         }
 
         .hero::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0,0,0,0.55);
-            z-index: 1;
+            background: linear-gradient(135deg, rgba(5,5,9,0.95), rgba(5,5,9,0.2));
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            animation: fadeIn 1.4s ease;
+            padding: 40px 46px;
+            max-width: 540px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 18px;
         }
 
-        .hero h2 {
-            font-size: 54px;
-            margin-bottom: 10px;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: rgba(0,194,194,0.1);
+            color: var(--accent);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
         }
 
         .hero p {
-            font-size: 22px;
-            margin-bottom: 25px;
+            font-size: 17px;
+            color: var(--text-muted);
         }
 
-        .btn {
-            background: #00C2C2;
-            color: white;
-            padding: 14px 32px;
-            font-size: 18px;
-            display: inline-block;
-            border-radius: 8px;
-            transition: 0.25s;
-            font-weight: 600;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-        }
-
-        .btn:hover {
-            background: #009E9E;
-            transform: translateY(-3px);
-        }
-
-        /* -----------------------------------
-           SECTION DEFAULT
-        ----------------------------------- */
-        section {
-            padding: 70px 40px;
-            max-width: 1400px;
-            margin: auto;
-        }
-
-        section h2 {
-            font-size: 34px;
-            margin-bottom: 25px;
-        }
-
-        /* Leistungen Grid */
-        .leistungen {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
-
-        .leistung-box {
-            background: white;
-            padding: 28px;
-            border-radius: 16px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
-
-        .leistung-box:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-        }
-
-        /* -----------------------------------
-           GALLERY
-        ----------------------------------- */
-        .galerie img {
-            width: 100%;
-            border-radius: 16px;
-            margin-bottom: 25px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-            transition: 0.3s;
-        }
-
-        .galerie img:hover {
-            transform: scale(1.02);
-        }
-
-        /* -----------------------------------
-           WHATSAPP BUTTON
-        ----------------------------------- */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            background: #25D366;
-            color: white;
-            width: 65px;
-            height: 65px;
+        .hero-actions {
             display: flex;
-            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+            padding: 12px 26px;
+            border-radius: 999px;
+            border: none;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            display: inline-flex;
             align-items: center;
-            border-radius: 50%;
-            font-size: 34px;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-            z-index: 100;
-            transition: 0.3s;
+            gap: 8px;
+            box-shadow: 0 18px 40px rgba(0,194,194,0.45);
+            transition: var(--transition-med);
         }
 
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            background: #1ebe5d;
+        .btn-primary:hover {
+            background: var(--accent-soft);
+            transform: translateY(-2px);
         }
 
-        /* -----------------------------------
-           FOOTER
-        ----------------------------------- */
-        footer {
-            background: #0F1C2E;
-            color: white;
-            text-align: center;
-            padding: 30px;
+        .btn-ghost {
+            border-radius: 999px;
+            border: 1px solid var(--border-subtle);
+            padding: 11px 22px;
+            background: rgba(15,23,42,0.7);
+            color: var(--text-main);
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: var(--transition-med);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0,194,194,0.08);
+        }
+
+        .hero-meta {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .hero-meta span::before {
+            content: "• ";
+            color: var(--accent);
+        }
+
+        /* ------------------------------
+           SECTIONS
+        ------------------------------ */
+        section {
             margin-top: 40px;
         }
 
-        footer a {
-            color: #00C2C2;
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
-        /* -----------------------------------
-           MOBILE RESPONSE
-        ----------------------------------- */
-        @media (max-width: 768px) {
+        .section-header h2 {
+            font-size: 26px;
+        }
 
-            header {
-                flex-direction: column;
-                gap: 10px;
+        .section-header p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 18px 18px 20px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 12px 34px rgba(0,0,0,0.55);
+            transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.7);
+            border-color: rgba(0,194,194,0.3);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* G A L E R I E */
+        .gallery-layout {
+            display: grid;
+            grid-template-columns: 2fr 1.4fr;
+            gap: 18px;
+        }
+
+        .gallery-main,
+        .gallery-side {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: #000;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .gallery-main img,
+        .gallery-side img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            height: 100%;
+        }
+
+        .gallery-side img {
+            height: 100%;
+        }
+
+        /* KONTAKT */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 20px 22px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .contact-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .contact-card strong {
+            color: var(--text-main);
+        }
+
+        .contact-highlight {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* IMPRESSUM / DATENSCHUTZ */
+        .legal-section {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 24px 22px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-soft);
+            font-size: 14px;
+        }
+
+        .legal-section h2 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .legal-section p {
+            color: var(--text-muted);
+            margin: 4px 0 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 18px 20px 26px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--accent);
+        }
+
+        /* WhatsApp Floating Button */
+        .wa-fab {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 26px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+            z-index: 120;
+            cursor: pointer;
+            transition: transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-fast);
+        }
+
+        .wa-fab:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.75);
+            background: #1ebe5a;
+        }
+
+        .wa-fab span {
+            position: absolute;
+            right: 64px;
+            background: var(--bg-card);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            color: var(--text-main);
+            border: 1px solid var(--border-subtle);
+            white-space: nowrap;
+        }
+
+        /* ------------------------------
+           MOBILE
+        ------------------------------ */
+        @media (max-width: 900px) {
+            nav {
+                gap: 14px;
             }
 
-            nav a {
-                margin: 0 10px;
-                font-size: 16px;
+            .nav-links {
+                position: fixed;
+                inset: 64px 14px auto 14px;
+                border-radius: 18px;
+                background: rgba(5,5,9,0.98);
+                flex-direction: column;
+                padding: 12px 16px 14px;
+                border: 1px solid var(--border-subtle);
+                box-shadow: var(--shadow-soft);
+                transform: translateY(-20px);
+                opacity: 0;
+                pointer-events: none;
+                transition: transform var(--transition-med), opacity var(--transition-med);
+            }
+
+            .nav-open .nav-links {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .mega-panel {
+                position: static;
+                transform: none !important;
+                box-shadow: none;
+                border-radius: 12px;
+                padding: 8px 10px 10px;
+                grid-template-columns: 1fr;
+                min-width: 0;
+                background: #050509;
+                margin-top: 6px;
+            }
+
+            .nav-item-mega:hover .mega-panel {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
             }
 
             .hero {
-                height: 65vh;
+                margin: 18px auto 22px;
+                border-radius: 24px;
             }
 
-            .hero h2 {
-                font-size: 34px;
+            .hero-content {
+                padding: 26px 22px 26px;
             }
 
-            .hero p {
-                font-size: 18px;
+            .hero h1 {
+                font-size: 28px;
             }
 
-            .btn {
-                font-size: 16px;
-                padding: 10px 22px;
+            .hero-meta {
+                flex-direction: column;
+            }
+
+            .gallery-layout,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding-bottom: 90px;
             }
         }
 
     </style>
 </head>
-
 <body>
 
-<!-- HEADER -->
 <header>
-    <img src="bvfliesen_logo.png" alt="BV Fliesen Logo">
-    <nav>
-        <a href="#start">Start</a>
-        <a href="#leistungen">Leistungen</a>
-        <a href="#galerie">Galerie</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="#impressum">Impressum</a>
-        <a href="#datenschutz">Datenschutz</a>
-    </nav>
+    <div class="nav-inner">
+        <div class="logo-wrap">
+            <img src="bvfliesen_logo.png" alt="BV Fliesen Logo">
+            <div class="logo-text">BV FLIESEN</div>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#start">Start</a></li>
+
+                <li class="nav-item-mega">
+                    <a href="#leistungen">Leistungen ▾</a>
+                    <div class="mega-panel">
+                        <div>
+                            <h4>BAD</h4>
+                            <a class="mega-link" href="#leistungen">
+                                Badsanierung
+                                <span>Komplette Modernisierung inkl. Fliesenarbeiten.</span>
+                            </a>
+                            <a class="mega-link" href="#leistungen">
+                                Dusche & Wellness
+                                <span>Bodengleiche Duschen, Nischen & Akzente.</span>
+                            </a>
+                        </div>
+                        <div>
+                            <h4>BODEN</h4>
+                            <a class="mega-link" href="#leistungen">
+                                Bodenfliesen
+                                <span>Langlebige, pflegeleichte Böden für alle Räume.</span>
+                            </a>
+                            <a class="mega-link" href="#leistungen">
+                                Großformat
+                                <span>Großformat-Fliesen für ein ruhiges, edles Bild.</span>
+                            </a>
+                        </div>
+                        <div>
+                            <h4>DETAILS</h4>
+                            <a class="mega-link" href="#leistungen">
+                                Mosaikarbeiten
+                                <span>Individuelle Akzente an Wänden & Duschen.</span>
+                            </a>
+                            <a class="mega-link" href="#leistungen">
+                                Reparaturen
+                                <span>Schnelle Ausbesserung von Schäden & Fugen.</span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="#impressum">Impressum</a></li>
+                <li><a href="#datenschutz">Datenschutz</a></li>
+            </ul>
+
+            <a class="nav-cta" href="#kontakt">Kostenloses Angebot</a>
+
+            <button class="nav-toggle" aria-label="Navigation öffnen/ schließen">
+                <span></span>
+            </button>
+        </nav>
+    </div>
 </header>
 
-<!-- HERO -->
-<div class="hero" id="start">
-    <div class="hero-content">
-        <h2>Professionelle Fliesenarbeiten</h2>
-        <p>Bad • Boden • Mosaik • Reparaturen</p>
-        <a href="#kontakt" class="btn">Kostenloses Angebot</a>
-    </div>
-</div>
+<main>
+    <!-- HERO -->
+    <section class="hero" id="start">
+        <div class="hero-content">
+            <div class="hero-badge">Meisterliche Fliesenarbeiten · Albstadt</div>
+            <h1>Moderne <span>Fliesenlösungen</span> für Bad, Boden & mehr.</h1>
+            <p>BV Fliesen steht für saubere Ausführung, hochwertige Materialien und zuverlässige Termine – von der Badsanierung bis zur kleinen Reparatur.</p>
 
-<!-- LEISTUNGEN -->
-<section id="leistungen" class="fade-in">
-    <h2>Unsere Leistungen</h2>
+            <div class="hero-actions">
+                <a href="#kontakt" class="btn-primary">
+                    Angebot anfragen
+                    <span>→</span>
+                </a>
+                <a href="#galerie" class="btn-ghost">
+                    Referenzen ansehen
+                </a>
+            </div>
 
-    <div class="leistungen">
-        <div class="leistung-box">
-            <h3>Badsanierung</h3>
-            <p>Moderne, hochwertige Badgestaltung aus einer Hand.</p>
+            <div class="hero-meta">
+                <span>Persönliche Beratung vor Ort</span>
+                <span>Saubere & präzise Verarbeitung</span>
+                <span>Festpreis-Angebote nach Besichtigung</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEISTUNGEN -->
+    <section id="leistungen">
+        <div class="section-header">
+            <h2>Leistungen</h2>
+            <p>Alles rund um Fliesen – aus einer Hand, sauber und zuverlässig.</p>
         </div>
 
-        <div class="leistung-box">
-            <h3>Bodenfliesen</h3>
-            <p>Langlebig, modern und professionell verlegt.</p>
+        <div class="card-grid">
+            <article class="card">
+                <h3>Badsanierung</h3>
+                <p>Von der Planung bis zur fertigen Dusche – moderne, fugenarme Lösungen, abgestimmt auf deinen Stil und dein Budget.</p>
+            </article>
+
+            <article class="card">
+                <h3>Bodenfliesen</h3>
+                <p>Robuste, pflegeleichte Böden für Wohnräume, Flure und Gewerbe – exakt verlegt, mit sauberen Übergängen und Sockeln.</p>
+            </article>
+
+            <article class="card">
+                <h3>Mosaik & Akzente</h3>
+                <p>Feine Details für Nischen, Duschen oder Waschtische – Mosaikarbeiten für ein individuelles, hochwertiges Erscheinungsbild.</p>
+            </article>
+
+            <article class="card">
+                <h3>Reparaturen & Fugen</h3>
+                <p>Tausch einzelner Fliesen, Silikon- und Fugenarbeiten – ideal bei kleineren Schäden oder zur optischen Auffrischung.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- GALERIE -->
+    <section id="galerie">
+        <div class="section-header">
+            <h2>Galerie</h2>
+            <p>Ein Einblick in Projekte und Oberflächen, mit denen wir täglich arbeiten.</p>
         </div>
 
-        <div class="leistung-box">
-            <h3>Mosaikarbeiten</h3>
-            <p>Individuelle Designs für ein exklusives Ergebnis.</p>
+        <div class="gallery-layout">
+            <div class="gallery-main">
+                <img src="https://images.unsplash.com/photo-1598470470809-83d7956ff06f?auto=format&fit=crop&w=1200&q=80"
+                     alt="Modernes Bad mit freistehender Badewanne und Fliesen">
+            </div>
+            <div class="gallery-side">
+                <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=900&q=80"
+                     alt="Detailaufnahme einer hochwertigen Fliesenwand">
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt">
+        <div class="section-header">
+            <h2>Kontakt</h2>
+            <p>Schick mir kurz deine Ideen – ich melde mich schnellstmöglich zurück.</p>
         </div>
 
-        <div class="leistung-box">
-            <h3>Reparaturen</h3>
-            <p>Schnelle und zuverlässige Ausbesserungsarbeiten.</p>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-highlight">Direkter Kontakt</div>
+                <p><strong>Telefon:</strong> 0152 08392863</p>
+                <p><strong>E-Mail:</strong> info@bv-fliesen.de</p>
+                <p><strong>Adresse:</strong><br>
+                   Eyachstraße 21<br>
+                   72459 Albstadt</p>
+                <p>Gerne komme ich zur Besichtigung vorbei und erstelle ein unverbindliches Angebot.</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>Infos für deine Anfrage</h3>
+                <p>Damit ich dir möglichst genau helfen kann, sind folgende Punkte hilfreich:</p>
+                <ul style="padding-left:18px; color: var(--text-muted); font-size: 13px;">
+                    <li>Art der Fläche (Bad, Boden, Treppe, etc.)</li>
+                    <li>ungefähre Quadratmeterzahl</li>
+                    <li>gewünschter Zeitraum</li>
+                    <li>ggf. Fotos vom aktuellen Zustand</li>
+                </ul>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- GALERIE -->
-<section id="galerie" class="fade-in">
-    <h2>Galerie</h2>
+    <!-- IMPRESSUM -->
+    <section id="impressum" class="legal-section">
+        <h2>Impressum</h2>
 
-    <div class="galerie">
-        <img src="https://images.unsplash.com/photo-1598470470809-83d7956ff06f" alt="Bad Beispiel">
-    </div>
-</section>
+        <p><strong>BV Fliesen</strong><br>
+           Inhaber: Valon Beqirej<br>
+           Eyachstraße 21<br>
+           72459 Albstadt</p>
 
-<!-- KONTAKT -->
-<section id="kontakt" class="fade-in">
-    <h2>Kontakt</h2>
-    <p>📞 Telefon: 0152 08392863 </p>
-    <p>📍 Adresse: Eyachstraße 21 <br> 72459 Albstadt </p>
-    <p>✉️ E-Mail: info@bv-fliesen.de</p>
-</section>
+        <p><strong>Kontakt:</strong><br>
+           Telefon: 0152 08392863<br>
+           E-Mail: info@bv-fliesen.de</p>
 
-<!-- WHATSAPP BUTTON -->
-<a class="whatsapp-btn" href="https://wa.me/4915208392863" target="_blank">💬</a>
+        <p><strong>Umsatzsteuer-ID:</strong><br>
+           (falls vorhanden hier eintragen – ansonsten Zeile entfernen)</p>
 
-<!-- FOOTER -->
+        <p><strong>Berufsbezeichnung:</strong><br>
+           Fliesen-, Platten- und Mosaikleger (Deutschland)</p>
+
+        <p><strong>Zuständige Handwerkskammer:</strong><br>
+           Handwerkskammer Reutlingen</p>
+
+        <p><strong>Haftungsausschluss:</strong><br>
+           Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links.
+           Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+
+        <p><strong>Urheberrecht:</strong><br>
+           Alle Inhalte dieser Webseite sind urheberrechtlich geschützt. Die Verwendung von Texten, Bildern oder
+           Layouts bedarf der vorherigen schriftlichen Zustimmung.</p>
+    </section>
+
+    <!-- DATENSCHUTZ -->
+    <section id="datenschutz" class="legal-section" style="margin-top:28px;">
+        <h2>Datenschutzerklärung</h2>
+
+        <p><strong>1. Allgemeine Hinweise</strong><br>
+           Der Schutz deiner persönlichen Daten ist uns wichtig. Personenbezogene Daten werden vertraulich und
+           entsprechend den gesetzlichen Datenschutzvorschriften verarbeitet.</p>
+
+        <p><strong>2. Verantwortlicher</strong><br>
+           Verantwortlich für die Datenverarbeitung ist:<br>
+           BV Fliesen, Inhaber: Valon Beqirej, Eyachstraße 21, 72459 Albstadt, E-Mail: info@bv-fliesen.de</p>
+
+        <p><strong>3. Server-Logfiles</strong><br>
+           Beim Aufruf dieser Webseite werden automatisch Informationen durch den Provider in sogenannten
+           Server-Logfiles gespeichert (z.B. IP-Adresse, Browsertyp, Uhrzeit des Seitenaufrufs). Diese Daten
+           dienen ausschließlich der technischen Stabilität und Sicherheit der Seite.</p>
+
+        <p><strong>4. Kontaktaufnahme</strong><br>
+           Wenn du uns per E-Mail oder telefonisch kontaktierst, werden deine Angaben zur Bearbeitung der
+           Anfrage und für Rückfragen gespeichert. Eine Weitergabe an Dritte erfolgt nicht ohne deine
+           ausdrückliche Zustimmung.</p>
+
+        <p><strong>5. Einbindung von Drittanbietern</strong><br>
+           Soweit externe Dienste (z.B. eingebettete Bilder von Drittanbietern) verwendet werden, erfolgt dies
+           auf Grundlage eines berechtigten Interesses an einer ansprechenden Darstellung der Webseite.
+        </p>
+
+        <p><strong>6. Rechte der betroffenen Personen</strong><br>
+           Du hast das Recht auf Auskunft über deine gespeicherten Daten, Berichtigung, Löschung sowie
+           Einschränkung der Verarbeitung. Außerdem hast du ein Recht auf Datenübertragbarkeit und kannst
+           erteilte Einwilligungen jederzeit mit Wirkung für die Zukunft widerrufen.</p>
+
+        <p><strong>7. Ansprechpartner zum Datenschutz</strong><br>
+           Für Fragen zum Datenschutz kannst du dich jederzeit an die im Impressum genannten Kontaktdaten wenden.</p>
+    </section>
+</main>
+
 <footer>
-    © 2025 BV Fliesen – Alle Rechte vorbehalten |
-    <a href="#impressum">Impressum</a> |
+    © 2025 BV Fliesen – Alle Rechte vorbehalten ·
+    <a href="#impressum">Impressum</a> ·
     <a href="#datenschutz">Datenschutz</a>
 </footer>
 
-<!-- IMPRESSUM -->
-<section id="impressum" class="fade-in" style="padding:60px 40px; max-width:900px; margin:auto;">
-    <h2>Impressum</h2>
+<!-- WhatsApp Floating Button -->
+<a class="wa-fab" href="https://wa.me/4915208392863?text=Hallo%20BV%20Fliesen,%20ich%20habe%20eine%20Frage%20zu%20Fliesenarbeiten."
+   target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Anfrage an BV Fliesen senden">
+    <span>WhatsApp Anfrage</span>
+    ☏
+</a>
 
-    <p><strong>BV Fliesen</strong><br>
-    Inhaber: Valon Beqirej<br>
-    Eyachstraße 21 <br>
-    72459 Albstadt</p>
+<script>
+    // Mobile-Navigation toggeln
+    const navToggle = document.querySelector(".nav-toggle");
+    const body = document.body;
 
-    <p><strong>Kontakt:</strong><br>
-    Telefon: 0152 08392863<br>
-    E-Mail: info@bv-fliesen.de</p>
+    navToggle.addEventListener("click", () => {
+        body.classList.toggle("nav-open");
+    });
 
-    <p><strong>Umsatzsteuer-ID:</strong><br>
-    (Falls vorhanden eintragen – oder Zeile löschen)</p>
-
-    <p><strong>Berufsbezeichnung:</strong><br>
-    Fliesen-, Platten- und Mosaikleger (Deutschland)</p>
-
-    <p><strong>Zuständige Handwerkskammer:</strong><br>
-    Handwerkskammer Reutlingen</p>
-
-    <p><strong>Haftungshinweis:</strong><br>
-    Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links.
-    Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
-
-    <p><strong>Urheberrecht:</strong><br>
-    Alle Inhalte dieser Webseite sind urheberrechtlich geschützt.</p>
-</section>
-
-<!-- DATENSCHUTZERKLÄRUNG -->
-<section id="datenschutz" class="fade-in" style="padding:60px 40px; max-width:900px; margin:auto;">
-    <h2>Datenschutzerklärung</h2>
-
-    <p><strong>1. Allgemeiner Hinweis</strong></p>
-    <p>Der Schutz Ihrer persönlichen Daten ist uns sehr wichtig. Ihre Daten werden im Rahmen der gesetzlichen Vorschriften geschützt.</p>
-
-    <p><strong>2. Erhebung und Verarbeitung personenbezogener Daten</strong></p>
-    <p>Beim Besuch unserer Webseite werden automatisch technische Daten verarbeitet (z. B. IP-Adresse, Browsertyp, Uhrzeit). Diese Daten dienen der technischen Bereitstellung der Seite.</p>
-
-    <p><strong>3. Kontaktaufnahme</strong></p>
-    <p>Wenn Sie uns per WhatsApp, Telefon oder E-Mail kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert.</p>
-
-    <p><strong>4. Weitergabe von Daten</strong></p>
-    <p>Eine Weitergabe an Dritte findet grundsätzlich nicht statt, außer wenn gesetzlich vorgeschrieben.</p>
-
-    <p><strong>5. Ihre Rechte</strong></p>
-    <ul>
-        <li>Auskunft über gespeicherte Daten</li>
-        <li>Löschung oder Sperrung</li>
-        <li>Widerruf erteilter Einwilligungen</li>
-    </ul>
-
-    <p><strong>6. WhatsApp Kontakt</strong></p>
-    <p>Durch Kontaktaufnahme via WhatsApp gelten die Datenschutzrichtlinien von WhatsApp.</p>
-
-    <p><strong>7. Hosting</strong></p>
-    <p>Die Website wird über GitHub Pages gehostet. Dabei können technische Daten verarbeitet werden.</p>
-
-    <p><strong>8. Aktualität</strong></p>
-    <p>Diese Datenschutzerklärung wurde zuletzt aktualisiert im Dezember 2025.</p>
-</section>
+    // Beim Klick auf Link im mobilen Menü wieder schließen
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            body.classList.remove("nav-open");
+        });
+    });
+</script>
 
 </body>
 </html>
