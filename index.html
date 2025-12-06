@@ -36,7 +36,7 @@
       },
       "priceRange": "€€",
       "areaServed": "Albstadt und Umgebung",
-      "description": "Professionelle Fliesenarbeiten, Badsanierung, komplette Badsanierung aus einer Hand und Fliesenverlegung."
+      "description": "Professionelle Fliesenarbeiten, Badsanierung, komplette Badsanierung aus einer Hand mit unseren kompetenten Firmenpartnern."
     }
     </script>
 
@@ -1027,7 +1027,7 @@
             <div class="review-card">
                 <div class="review-name">Familie K.</div>
                 <div class="review-stars">★★★★★</div>
-                <p>„Komplette Badsanierung aus einer Hand – wir mussten uns um fast nichts kümmern. 
+                <p>„Komplette Badsanierung aus einer Hand – wir mussten uns um fast nichts kümmern.
                     So stellt man sich Handwerk vor.“</p>
                 <div class="review-source">Google Bewertung · sinngemäß wiedergegeben</div>
             </div>
@@ -1058,10 +1058,8 @@
                     Die mit * markierten Felder sind Pflichtfelder. Deine Daten werden nur zur Bearbeitung der Anfrage verwendet.
                 </p>
 
-                <!-- HINWEIS: Für echten Mailversand z.B. Formspree oder Web3Forms nutzen -->
-                <form id="kontaktformular" action="https://formspree.io/f/xvgeqwpw
-                     method="POST"
-                    autocomplete="on">
+                <!-- Mailversand über Formspree -->
+                <form id="kontaktForm" action="https://formspree.io/f/xvgeqwpw" method="POST" autocomplete="on">
                     <div class="field">
                         <label for="name">Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -1114,7 +1112,7 @@
            E-Mail: info@bv-fliesen.de</p>
 
         <p><strong>Umsatzsteuer-ID:</strong><br>
-           (no infortmation yet)</p>
+           (noch keine Angabe)</p>
 
         <p><strong>Berufsbezeichnung:</strong><br>
            Fliesen-, Platten- und Mosaikleger (Deutschland)</p>
@@ -1258,7 +1256,7 @@
                     status.style.color = "#22C55E";
                     status.textContent = "Deine Nachricht wird gesendet...";
                 }
-                // E-Mail Versand erfolgt über Formspree/Web3Forms (action-URL oben anpassen)
+                // E-Mail Versand erfolgt über Formspree (action-URL ist oben gesetzt)
             }
         });
     }
