@@ -43,7 +43,6 @@
 
     <style>
         :root {
-            /* Standard: dunkles Design */
             --bg-body: #050509;
             --bg-card: #0E1017;
             --bg-elevated: #111827;
@@ -59,7 +58,6 @@
             --transition-med: 0.3s ease;
         }
 
-        /* Auto Light-Mode nach System-Einstellung */
         @media (prefers-color-scheme: light) {
             :root {
                 --bg-body: #F3F4F6;
@@ -90,7 +88,6 @@
         }
 
         h1, h2, h3 { font-weight: 600; margin: 0; }
-
         a { text-decoration: none; color: inherit; }
 
         main {
@@ -99,7 +96,6 @@
             padding: 0 20px 70px;
         }
 
-        /* HEADER + MEGA-MENÜ */
         header {
             position: sticky;
             top: 0;
@@ -278,7 +274,6 @@
             border-radius: 28px;
             overflow: hidden;
             position: relative;
-            /* Hinweis: Dieses Bild liegt aktuell im Root. Wenn du es nach /img verschiebst -> url('img/Badsanierungbild.hero.png') */
             background: url('Badsanierungbild.hero.png') center center/cover no-repeat;
             min-height: 72vh;
             display: flex;
@@ -429,15 +424,14 @@
         .card h3 { font-size: 18px; margin-bottom: 6px; }
         .card p { font-size: 14px; color: var(--text-muted); }
 
-        /* GALLERY (FIXED) */
-        .gallery-layout {
+        /* GALERIE: 6-Bilder Grid */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: 2fr 1.4fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
 
-        .gallery-main,
-        .gallery-side {
+        .gallery-grid-item {
             border-radius: var(--radius-lg);
             overflow: hidden;
             background: #000;
@@ -445,24 +439,17 @@
             border: 1px solid var(--border-subtle);
         }
 
-        .gallery-main {
-            aspect-ratio: 16 / 10;
-            width: 100%;
-            min-height: 320px;
-        }
-
-        .gallery-side {
-            aspect-ratio: 4 / 5;
-            width: 100%;
-            min-height: 320px;
-        }
-
-        .gallery-main img,
-        .gallery-side img {
+        .gallery-grid-item img {
             width: 100%;
             height: 100%;
             display: block;
             object-fit: cover;
+            aspect-ratio: 4 / 3;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-grid-item:hover img {
+            transform: scale(1.04);
         }
 
         /* GOOGLE-BEWERTUNGEN (statisch) */
@@ -689,12 +676,15 @@
             .hero h1 { font-size: 28px; }
             .hero-meta { flex-direction: column; }
 
-            .gallery-layout,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
+            .contact-grid { grid-template-columns: 1fr; }
+
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 
             main { padding-bottom: 90px; }
+        }
+
+        @media (max-width: 520px) {
+            .gallery-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -816,23 +806,31 @@
         </div>
     </section>
 
-    <!-- GALERIE (LOCAL IMAGES) -->
+    <!-- GALERIE (6 LOCAL IMAGES) -->
     <section id="galerie">
         <div class="section-header">
             <h2>Galerie</h2>
             <p>Ein Einblick in Oberflächen und Projekte, mit denen wir arbeiten.</p>
         </div>
 
-        <div class="gallery-layout">
-            <div class="gallery-main">
-                <img src="img/bad-galerie-03.jpg"
-                     alt="Badprojekt – Galerie Bild"
-                     loading="lazy">
+        <div class="gallery-grid">
+            <div class="gallery-grid-item">
+                <img src="img/bad-galerie-01.jpg" alt="Badprojekt – Galerie 01" loading="lazy">
             </div>
-            <div class="gallery-side">
-                <img src="img/bad-galerie-04.jpg"
-                     alt="Badprojekt – Detailaufnahme"
-                     loading="lazy">
+            <div class="gallery-grid-item">
+                <img src="img/bad-galerie-02.jpg" alt="Badprojekt – Galerie 02" loading="lazy">
+            </div>
+            <div class="gallery-grid-item">
+                <img src="img/bad-galerie-03.jpg" alt="Badprojekt – Galerie 03" loading="lazy">
+            </div>
+            <div class="gallery-grid-item">
+                <img src="img/bad-galerie-04.jpg" alt="Badprojekt – Galerie 04" loading="lazy">
+            </div>
+            <div class="gallery-grid-item">
+                <img src="img/bad-galerie-05.jpg" alt="Badprojekt – Galerie 05" loading="lazy">
+            </div>
+            <div class="gallery-grid-item">
+                <img src="img/bad-galerie-06.jpg" alt="Badprojekt – Galerie 06" loading="lazy">
             </div>
         </div>
     </section>
@@ -893,7 +891,6 @@
                     Die mit * markierten Felder sind Pflichtfelder. Deine Daten werden nur zur Bearbeitung der Anfrage verwendet.
                 </p>
 
-                <!-- Mailversand über Formspree -->
                 <form id="kontaktForm" action="https://formspree.io/f/xvgeqwpw" method="POST" autocomplete="on">
                     <div class="field">
                         <label for="name">Name *</label>
@@ -1007,7 +1004,6 @@
     <a href="#datenschutz">Datenschutz</a>
 </footer>
 
-<!-- WhatsApp Floating Button -->
 <a class="wa-fab" href="https://wa.me/4915208392863?text=Hallo%20BV%20Fliesen,%20ich%20habe%20eine%20Frage%20zu%20Fliesenarbeiten."
    target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Anfrage an BV Fliesen senden">
     <span>WhatsApp Anfrage</span>
@@ -1015,7 +1011,6 @@
 </a>
 
 <script>
-    // Mobile-Navigation toggeln
     const navToggle = document.querySelector(".nav-toggle");
     const body = document.body;
 
@@ -1031,7 +1026,6 @@
         });
     });
 
-    // Form-Validation (Basic)
     const form = document.getElementById("kontaktForm");
     if (form) {
         form.addEventListener("submit", function(e) {
@@ -1047,25 +1041,17 @@
                 if (el) el.style.display = show ? "block" : "none";
             };
 
-            if (!name.value.trim()) {
-                valid = false;
-                showError("err-name", true);
-            } else showError("err-name", false);
+            if (!name.value.trim()) { valid = false; showError("err-name", true); }
+            else showError("err-name", false);
 
-            if (!email.value.trim() || !email.checkValidity()) {
-                valid = false;
-                showError("err-email", true);
-            } else showError("err-email", false);
+            if (!email.value.trim() || !email.checkValidity()) { valid = false; showError("err-email", true); }
+            else showError("err-email", false);
 
-            if (!message.value.trim()) {
-                valid = false;
-                showError("err-message", true);
-            } else showError("err-message", false);
+            if (!message.value.trim()) { valid = false; showError("err-message", true); }
+            else showError("err-message", false);
 
-            if (!privacy.checked) {
-                valid = false;
-                showError("err-privacy", true);
-            } else showError("err-privacy", false);
+            if (!privacy.checked) { valid = false; showError("err-privacy", true); }
+            else showError("err-privacy", false);
 
             if (!valid) {
                 e.preventDefault();
