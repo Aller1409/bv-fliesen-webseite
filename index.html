@@ -1,95 +1,100 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+<meta name="google-site-verification" content="-B_LzvMU-idTOlsQwv42yWG_yOz-orehdq96NtQ9usk" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>BV Fliesen – Professionelle Fliesenarbeiten in Albstadt</title>
 
-<meta name="description" content="BV Fliesen – professionelle Fliesenarbeiten & komplette Badsanierung in Albstadt.">
+<!-- SEO BASIS -->
+<meta name="description" content="BV Fliesen in Albstadt – Professionelle Fliesenarbeiten für Bad, komplette Badsanierung mit unseren kompetenten Firmenpartnern. Jetzt unverbindliches Angebot anfragen.">
+<meta name="keywords" content="Fliesenleger Albstadt, Badsanierung, Fliesenverlegung, BV Fliesen">
 <meta name="robots" content="index,follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="BV Fliesen – Professionelle Fliesenarbeiten in Albstadt">
+<meta property="og:description" content="Moderne Fliesenarbeiten & komplette Badsanierung aus einer Hand.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bv-fliesen.de/">
+<meta property="og:image" content="https://bv-fliesen.de/bvfliesen_logo.png">
+
+<!-- LocalBusiness JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "BV Fliesen",
+  "image": "https://bv-fliesen.de/bvfliesen_logo.png",
+  "url": "https://bv-fliesen.de/",
+  "telephone": "+49-152-08392863",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Eyachstraße 21",
+    "postalCode": "72459",
+    "addressLocality": "Albstadt",
+    "addressCountry": "DE"
+  },
+  "priceRange": "€€",
+  "areaServed": "Albstadt und Umgebung",
+  "description": "Professionelle Fliesenarbeiten, komplette Badsanierung aus einer Hand mit kompetenten Partnerbetrieben."
+}
+</script>
 
 <style>
 :root{
   --bg-body:#050509;
   --bg-card:#0E1017;
+  --bg-elevated:#111827;
   --accent:#00C2C2;
   --accent-soft:#009E9E;
   --text-main:#F9FAFB;
   --text-muted:#9CA3AF;
-  --border:#1F2933;
+  --border-subtle:#1F2933;
+  --shadow-soft:0 18px 40px rgba(0,0,0,.55);
   --radius-lg:18px;
+  --radius-md:12px;
 }
 
 *{box-sizing:border-box}
 
 body{
   margin:0;
-  font-family:system-ui,Arial,sans-serif;
-  background:var(--bg-body);
+  font-family:system-ui,Segoe UI,Arial,sans-serif;
+  background:radial-gradient(circle at top,#111827 0,var(--bg-body) 55%);
   color:var(--text-main);
 }
 
 main{
   max-width:1200px;
   margin:0 auto;
-  padding:40px 20px 80px;
+  padding:0 20px 70px;
 }
-
-h1,h2{margin:0 0 14px}
-
-/* =========================
-   HERO
-========================= */
-.hero{
-  min-height:70vh;
-  background:url("Badsanierungbild.hero.png") center/cover no-repeat;
-  border-radius:28px;
-  position:relative;
-  overflow:hidden;
-  margin-bottom:60px;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg,rgba(5,5,9,.95),rgba(5,5,9,.3));
-}
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:520px;
-  padding:48px;
-}
-.hero h1 span{color:var(--accent)}
-.hero p{color:var(--text-muted)}
 
 /* =========================
    BEFORE / AFTER (FIX)
 ========================= */
 .before-after-wrapper{
   display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:24px;
+  grid-template-columns:1.8fr 1.2fr;
+  gap:18px;
   align-items:center;
 }
 
 .before-after{
   position:relative;
-  width:100%;
   aspect-ratio:16/9;
   min-height:320px;
   overflow:hidden;
   border-radius:var(--radius-lg);
-  border:1px solid var(--border);
-  background:#000;
+  border:1px solid var(--border-subtle);
+  box-shadow:var(--shadow-soft);
 }
 
 .before-after img{
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
 }
 
 .after-img{
@@ -110,11 +115,11 @@ h1,h2{margin:0 0 14px}
   position:absolute;
   top:12px;
   left:12px;
-  z-index:3;
-  background:rgba(0,0,0,.6);
+  background:rgba(0,0,0,.55);
   padding:4px 10px;
   border-radius:999px;
   font-size:12px;
+  z-index:3;
 }
 
 .before-after-range{
@@ -133,7 +138,6 @@ h1,h2{margin:0 0 14px}
   display:grid;
   grid-template-columns:2fr 1.4fr;
   gap:18px;
-  margin-top:40px;
 }
 
 .gallery-main,
@@ -141,7 +145,7 @@ h1,h2{margin:0 0 14px}
   background:#000;
   border-radius:var(--radius-lg);
   overflow:hidden;
-  border:1px solid var(--border);
+  border:1px solid var(--border-subtle);
 }
 
 .gallery-main{
@@ -159,18 +163,14 @@ h1,h2{margin:0 0 14px}
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 @media(max-width:900px){
   .before-after-wrapper,
   .gallery-layout{
     grid-template-columns:1fr;
   }
-  .hero-content{padding:28px}
 }
 </style>
 </head>
@@ -179,20 +179,10 @@ h1,h2{margin:0 0 14px}
 
 <main>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Moderne <span>Fliesenlösungen</span> für Bad & Boden</h1>
-    <p>Saubere Ausführung, hochwertige Materialien und komplette Badsanierung mit kompetenten Partnerbetrieben.</p>
-  </div>
-</section>
-
-<!-- VORHER / NACHHER -->
-<section>
+<section id="before-after">
   <h2>Vorher / Nachher</h2>
 
   <div class="before-after-wrapper">
-
     <div class="before-after">
 
       <div class="after-img">
@@ -212,21 +202,18 @@ h1,h2{margin:0 0 14px}
     </div>
 
     <p style="color:var(--text-muted)">
-      Professionell geplante Fliesen verändern Raumwirkung, Proportionen und Wertigkeit sofort.
+      Großformatige Fliesen, ruhige Fugen und saubere Details lassen Räume moderner und größer wirken.
     </p>
-
   </div>
 </section>
 
-<!-- GALERIE -->
-<section>
+<section id="galerie">
   <h2>Galerie</h2>
 
   <div class="gallery-layout">
     <div class="gallery-main">
       <img src="https://images.unsplash.com/photo-1598470470809-83d7956ff06f?auto=format&fit=crop&w=1200&q=80" alt="Modernes Bad">
     </div>
-
     <div class="gallery-side">
       <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=900&q=80" alt="Fliesendetail">
     </div>
@@ -236,12 +223,13 @@ h1,h2{margin:0 0 14px}
 </main>
 
 <script>
-const range = document.getElementById("baRange");
-const before = document.getElementById("beforeImg");
+const baRange = document.getElementById("baRange");
+const beforeImg = document.getElementById("beforeImg");
 
-if(range && before){
-  const update = () => before.style.width = range.value + "%";
-  range.addEventListener("input", update);
+if(baRange && beforeImg){
+  const update = () => beforeImg.style.width = baRange.value + "%";
+  baRange.addEventListener("input", update);
+  window.addEventListener("resize", update);
   update();
 }
 </script>
