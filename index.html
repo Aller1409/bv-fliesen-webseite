@@ -3,18 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BV Fliesen – Professionelle Fliesenarbeiten</title>
+
+<title>BV Fliesen – Professionelle Fliesenarbeiten in Albstadt</title>
+
+<meta name="description" content="BV Fliesen – professionelle Fliesenarbeiten & komplette Badsanierung in Albstadt.">
+<meta name="robots" content="index,follow">
 
 <style>
-:root {
+:root{
   --bg-body:#050509;
   --bg-card:#0E1017;
   --accent:#00C2C2;
+  --accent-soft:#009E9E;
   --text-main:#F9FAFB;
   --text-muted:#9CA3AF;
   --border:#1F2933;
-  --radius:18px;
+  --radius-lg:18px;
 }
+
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -26,17 +33,44 @@ body{
 main{
   max-width:1200px;
   margin:0 auto;
-  padding:40px 20px;
+  padding:40px 20px 80px;
 }
 
-/* =========================
-   BEFORE / AFTER (FIXED)
-========================= */
+h1,h2{margin:0 0 14px}
 
+/* =========================
+   HERO
+========================= */
+.hero{
+  min-height:70vh;
+  background:url("Badsanierungbild.hero.png") center/cover no-repeat;
+  border-radius:28px;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:60px;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(5,5,9,.95),rgba(5,5,9,.3));
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:520px;
+  padding:48px;
+}
+.hero h1 span{color:var(--accent)}
+.hero p{color:var(--text-muted)}
+
+/* =========================
+   BEFORE / AFTER (FIX)
+========================= */
 .before-after-wrapper{
   display:grid;
   grid-template-columns:2fr 1fr;
-  gap:20px;
+  gap:24px;
   align-items:center;
 }
 
@@ -46,7 +80,7 @@ main{
   aspect-ratio:16/9;
   min-height:320px;
   overflow:hidden;
-  border-radius:var(--radius);
+  border-radius:var(--radius-lg);
   border:1px solid var(--border);
   background:#000;
 }
@@ -93,20 +127,19 @@ main{
 }
 
 /* =========================
-   GALERIE (FIXED)
+   GALERIE (FIX)
 ========================= */
-
 .gallery-layout{
   display:grid;
   grid-template-columns:2fr 1.4fr;
   gap:18px;
-  margin-top:60px;
+  margin-top:40px;
 }
 
 .gallery-main,
 .gallery-side{
   background:#000;
-  border-radius:var(--radius);
+  border-radius:var(--radius-lg);
   overflow:hidden;
   border:1px solid var(--border);
 }
@@ -137,6 +170,7 @@ main{
   .gallery-layout{
     grid-template-columns:1fr;
   }
+  .hero-content{padding:28px}
 }
 </style>
 </head>
@@ -145,21 +179,28 @@ main{
 
 <main>
 
-<!-- =======================
-     VORHER / NACHHER
-======================= -->
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Moderne <span>Fliesenlösungen</span> für Bad & Boden</h1>
+    <p>Saubere Ausführung, hochwertige Materialien und komplette Badsanierung mit kompetenten Partnerbetrieben.</p>
+  </div>
+</section>
+
+<!-- VORHER / NACHHER -->
 <section>
   <h2>Vorher / Nachher</h2>
 
   <div class="before-after-wrapper">
+
     <div class="before-after">
 
       <div class="after-img">
-        <img src="https://images.unsplash.com/photo-1598470470809-83d7956ff06f?auto=format&fit=crop&w=1200&q=80" alt="Nachher">
+        <img src="https://images.unsplash.com/photo-1598470470809-83d7956ff06f?auto=format&fit=crop&w=1200&q=80" alt="Nachher Bad">
       </div>
 
       <div class="before-img" id="beforeImg">
-        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80" alt="Vorher">
+        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80" alt="Vorher Bad">
       </div>
 
       <div class="before-after-label">Vorher / Nachher</div>
@@ -171,15 +212,13 @@ main{
     </div>
 
     <p style="color:var(--text-muted)">
-      Der Unterschied zwischen „irgendwie gemacht“ und professionell geplanten
-      Fliesen wird sofort sichtbar: ruhige Fugen, saubere Kanten, klare Linien.
+      Professionell geplante Fliesen verändern Raumwirkung, Proportionen und Wertigkeit sofort.
     </p>
+
   </div>
 </section>
 
-<!-- =======================
-     GALERIE
-======================= -->
+<!-- GALERIE -->
 <section>
   <h2>Galerie</h2>
 
